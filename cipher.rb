@@ -1,24 +1,5 @@
 # frozen_string_literal: true
 
-# A Class to represent a caesar cipher
-# class Cipher
-#   def initialize
-#     @quote = nil
-#     @num = nil
-#   end
-
-#   def set_string
-#     puts 'Message: '
-#     @quote = gets.chomp
-#   end
-
-#   def set_num
-#     puts 'Number: '
-#     num = gets.chomp
-#     @num = num.to_i
-#   end
-# end
-
 def cipher(string, num)
   ascii = string.bytes
   arr = []
@@ -41,3 +22,23 @@ def cipher(string, num)
   x = arr.map(&:chr)
   x.join
 end
+
+# Sad attempt to make it a class :)
+# # A Class to represent a caesar cipher
+# class Cipher
+#   def initialize
+#     @quote = nil
+#     @num = nil
+#   end
+
+#   def set_string
+#     puts 'Message: '
+#     @quote = gets.chomp
+#   end
+
+#   def set_num
+#     puts 'Number: '
+#     num = gets.chomp
+#     @num = num.to_i
+#   end
+# end

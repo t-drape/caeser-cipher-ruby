@@ -2,7 +2,52 @@
 
 require './cipher'
 
-# describe Cipher do
+describe '#ciper' do # rubocop:disable Metrics/BlockLength
+  it 'keeps case and shifts letters' do
+    string = 'hEllo'
+    num = 1
+    expected_output = 'iFmmp'
+    expect(cipher(string, num)).to eql(expected_output)
+  end
+
+  it 'shifts around to start' do
+    string = 'xelloz'
+    num = 3
+    expected_output = 'ahoorc'
+    expect(cipher(string, num)).to eql(expected_output)
+  end
+
+  it 'keeps the punctuation marks the same' do
+    string = 'hel?loz!'
+    num = 1
+    expected_output = 'ifm?mpa!'
+    expect(cipher(string, num)).to eql(expected_output)
+  end
+
+  it 'keeps the spaces in a string' do
+    string = 'H E ll o! ! !'
+    num = 1
+    expected_output = 'I F mm p! ! !'
+    expect(cipher(string, num)).to eql(expected_output)
+  end
+
+  it 'works with numbers as well' do
+    string = 'The maximum value is 100'
+    num = 2
+    expected_output = 'Vjg oczkowo xcnwg ku 100'
+    expect(cipher(string, num)).to eql(expected_output)
+  end
+
+  it 'works with zero' do
+    string = 'HellOZ!'
+    num = 0
+    expected_output = 'HellOZ!'
+    expect(cipher(string, num)).to eql(expected_output)
+  end
+end
+
+# Tried to make it a class! That was a bad idea :)
+# # describe Cipher do
 #   subject(:user_values) { described_class.new }
 
 #   describe '#set_string' do
@@ -56,47 +101,3 @@ require './cipher'
 #     end
 #   end
 # end
-
-describe '#ciper' do # rubocop:disable Metrics/BlockLength
-  it 'keeps case and shifts letters' do
-    string = 'hEllo'
-    num = 1
-    expected_output = 'iFmmp'
-    expect(cipher(string, num)).to eql(expected_output)
-  end
-
-  it 'shifts around to start' do
-    string = 'xelloz'
-    num = 3
-    expected_output = 'ahoorc'
-    expect(cipher(string, num)).to eql(expected_output)
-  end
-
-  it 'keeps the punctuation marks the same' do
-    string = 'hel?loz!'
-    num = 1
-    expected_output = 'ifm?mpa!'
-    expect(cipher(string, num)).to eql(expected_output)
-  end
-
-  it 'keeps the spaces in a string' do
-    string = 'H E ll o! ! !'
-    num = 1
-    expected_output = 'I F mm p! ! !'
-    expect(cipher(string, num)).to eql(expected_output)
-  end
-
-  it 'works with numbers as well' do
-    string = 'The maximum value is 100'
-    num = 2
-    expected_output = 'Vjg oczkowo xcnwg ku 100'
-    expect(cipher(string, num)).to eql(expected_output)
-  end
-
-  it 'works with zero' do
-    string = 'HellOZ!'
-    num = 0
-    expected_output = 'HellOZ!'
-    expect(cipher(string, num)).to eql(expected_output)
-  end
-end
