@@ -41,11 +41,3 @@ def cipher(string, num)
   x = arr.map(&:chr)
   x.join
 end
-
-puts 'Message: '
-string = gets.chomp
-puts 'Number: '
-num = gets.chomp
-num = num.to_i
-
-puts cipher(string, num)
